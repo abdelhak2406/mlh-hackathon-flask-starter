@@ -7,6 +7,7 @@ from app.services.github import GitHub
 blueprint = Blueprint('tutorial', __name__, url_prefix='/tutorial')
 
 @blueprint.route('/requesting')
+
 def requesting():
     search = request.args.get('query', '')
     if not 'access_token' in session:
@@ -36,3 +37,9 @@ def star():
     github.delete('/user/starred/' + repo)
 
     return redirect(url_for('tutorial.fetching'))
+
+@blueprint.route('/hello')
+
+def helaw():
+    print("hahaha")
+    
